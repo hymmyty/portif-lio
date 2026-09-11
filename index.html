@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio profissional de George Gabriel — Cursante de Desenvolvimento de Sistemas." />
+  <title>George Gabriel | Portfólio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0b0d13;
+      --bg-soft: #11141d;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-hover: rgba(255, 255, 255, 0.1);
+      --text: #f5f7fb;
+      --muted: #a6adbd;
+      --line: rgba(255, 255, 255, 0.12);
+      --primary: #9b8cff;
+      --secondary: #70e1c4;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 10% 10%, rgba(155, 140, 255, 0.15), transparent 28rem),
+        radial-gradient(circle at 90% 35%, rgba(112, 225, 196, 0.08), transparent 24rem),
+        var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 6rem 0;
+    }
+
+    .section-heading {
+      margin-bottom: 2.5rem;
+    }
+
+    .eyebrow {
+      color: var(--secondary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.1;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      letter-spacing: -0.08em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.05em;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .site-header {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      width: 100%;
+      border-bottom: 1px solid transparent;
+      background: rgba(11, 13, 19, 0.65);
+      backdrop-filter: blur(18px);
+      transition: border-color 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      border-color: var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.7rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a,
+    .social-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .social-links a:hover {
+      color: var(--text);
+    }
+
+    .menu-button {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: 0.65rem;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.25rem;
+      padding: 0.5rem 0.7rem;
+    }
+
+    .hero {
+      display: grid;
+      min-height: 100vh;
+      align-items: center;
+      padding: 9rem 0 5rem;
+    }
+
+    .hero-content {
+      position: relative;
+    }
+
+    .hero h1 {
+      margin: 1.2rem 0 1.6rem;
+    }
+
+    .hero h1 .highlight {
+      color: var(--primary);
+    }
+
+    .hero-description {
+      max-width: 610px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      cursor: pointer;
+      font-weight: 700;
+      padding: 0.85rem 1.2rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .button-primary {
+      border-color: transparent;
+      background: var(--primary);
+      color: #12101f;
+    }
+
+    .button-secondary {
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 4rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 0 5px rgba(112, 225, 196, 0.12);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p + p {
+      margin-top: 1rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.8rem;
+    }
+
+    .skill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      color: #dce0ea;
+      font-size: 0.9rem;
+      padding: 0.55rem 0.9rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .stat,
+    .project-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border-radius: 1rem;
+    }
+
+    .stat {
+      padding: 1.4rem;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      overflow: hidden;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      background: var(--card-hover);
+    }
+
+    .project-image {
+      display: grid;
+      height: 190px;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(155, 140, 255, 0.92), rgba(112, 225, 196, 0.68)),
+        #292541;
+      color: #fff;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+    }
+
+    .project-card:nth-child(2) .project-image {
+      background: linear-gradient(135deg, #193a54, #55b9aa);
+    }
+
+    .project-card:nth-child(3) .project-image {
+      background: linear-gradient(135deg, #482347, #ee8f9b);
+    }
+
+    .project-content {
+      padding: 1.3rem;
+    }
+
+    .project-content p {
+      min-height: 4.8rem;
+      margin: 0.7rem 0 1rem;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .project-tags span {
+      border-radius: 999px;
+      background: rgba(155, 140, 255, 0.13);
+      color: #c8c0ff;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.55rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2.2rem;
+    }
+
+    .contact-card p {
+      max-width: 600px;
+      margin-top: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer small {
+      color: var(--muted);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      .section {
+        padding: 4.5rem 0;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        right: 1rem;
+        left: 1rem;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid var(--line);
+        border-radius: 0.8rem;
+        background: rgba(17, 20, 29, 0.97);
+        padding: 0.5rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.8rem;
+      }
+
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .project-content p {
+        min-height: auto;
+      }
+
+      .contact-card,
+      .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 3.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="topo">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="logo" href="#inicio">seu<span>nome</span>.</a>
+
+      <button class="menu-button" id="menuButton" aria-label="Abrir menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">Olá, eu sou</span>
+        <h1>Seu Nome.<br />Eu crio <span class="highlight">experiências digitais.</span></h1>
+        <p class="hero-description">
+          Desenvolvedor web apaixonado por transformar ideias em sites rápidos,
+          bonitos e fáceis de usar.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projetos">Ver meus projetos</a>
+          <a class="button button-secondary" href="#contato">Vamos conversar</a>
+        </div>
+
+        <div class="hero-note">
+          <span class="status-dot" aria-hidden="true"></span>
+          Disponível para novos projetos
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container about-grid">
+        <div class="section-heading">
+          <span class="eyebrow">01 — Sobre mim</span>
+          <h2>Um pouco sobre o meu trabalho.</h2>
+        </div>
+
+        <div class="about-text">
+          <p>
+            
+          </p>
+          <p>
+            Atualmente, estou aberto a oportunidades, trabalhos freelance e projetos
+            criativos. Este texto é um exemplo: substitua-o pela sua história.
+          </p>
+
+          <div class="skills" aria-label="Tecnologias e habilidades">
+            <span class="skill">Gml</span>
+            <span class="skill">Criação e desenvolvimento de histórias</span>
+            <span class="skill">Python</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">Git</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container stats" style="margin-top: 3rem;">
+        <div class="stat">
+          <strong>03+</strong>
+          <span>Anos de experiência</span>
+        </div>
+        <div class="stat">
+          <strong>20+</strong>
+          <span>Projetos realizados</span>
+        </div>
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Dedicação em cada projeto</span>
+        </div>
+        <div class="stat">
+          <strong>24h</strong>
+          <span>Tempo médio de resposta</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">02 — Projetos selecionados</span>
+          <h2>Coisas que eu já criei.</h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-image">Meu Livro</div>
+            <div class="project-content">
+              <h3>Quase um canônico</h3>
+              <p>
+                Livro criado e escrito por mim.
+              </p>
+              <div class="project-tags">
+                <span>Literatura</span>
+                <span>texto e proza</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image">Projeto 03</div>
+            <div class="project-content">
+              <h3>Site institucional</h3>
+              <p>
+                Site moderno para apresentar os serviços, a história e os diferenciais
+                de uma empresa.
+              </p>
+              <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Responsivo</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <span class="eyebrow">03 — Contato</span>
+            <h2>Tem uma ideia? Vamos conversar.</h2>
+            <p>
+              Envie uma mensagem para saber mais sobre meu trabalho ou conversar
+              sobre o seu próximo projeto.
+            </p>
+          </div>
+          <a class="button button-primary" href="mailto:george.g.r.mmendes@gmail.com">Enviar e-mail</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <small>© <span id="year"></span> George Gabriel. Todos os direitos reservados.</small>
+      <div class="social-links">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector('.site-header');
+    const menuButton = document.querySelector('#menuButton');
+    const navLinks = document.querySelector('#navLinks');
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.querySelector('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
